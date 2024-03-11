@@ -4,7 +4,7 @@
 http://guang.zxg/person/1111
 ```
 
-111就是url param。服务端框架或者单页应用的路由都支持从url中取参数。
+这里的111就是路径中的参数（ url param ）。服务端框架或者单页应用的路由都支持从url中取参数。
 
 - query
 
@@ -20,6 +20,19 @@ name和age是query传递的数据。
 const query = "?name=" + enCodeURIComponent('光') + "&age=20"
 
 // ?name=%E5%85%89&age=20
+```
+
+或者使用query-string库来处理
+
+```
+const queryString = require('query-string');
+
+queryString.stringify({
+	name: '光',
+	age: 20
+});
+
+// ?name=%E5%85%89%age=20
 ```
 
 - form-urlencoded
@@ -39,6 +52,8 @@ Connection: keep-alive
 
 name= %E5%85%89&age=22
 ```
+
+不适合文件传输
 
 - form-data
 
